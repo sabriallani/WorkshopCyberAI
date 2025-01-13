@@ -18,6 +18,7 @@ Ce TP a pour objectif de vous initier à l’utilisation des modèles de langage
 1. **Compte NVIDIA NGC** : Créez un compte [ici](https://www.nvidia.com/ngc).
 2. **Clé API NVIDIA** : Générez une clé API dans votre tableau de bord NVIDIA NGC.
 3. **Google Colab** : Utilisez une instance Colab pour exécuter ce TP.
+4. **Documentation de l'API NVIDIA** : Consultez [ce lien](https://build.nvidia.com/nvidia/llama-3_1-nemotron-70b-instruct).
 
 ---
 
