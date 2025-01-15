@@ -51,6 +51,50 @@ L'AI Act classe les systèmes d'IA en quatre catégories de risque :
 
 ---
 
+## **Lab 1 : Catégorisation des Risques et Plan de Conformité**
+
+### **Objectif**
+Analyser un cas d'utilisation et l'attribuer à la catégorie de risque appropriée selon le EU AI Act.
+
+### **Scénario**
+Vous faites partie d'une équipe qui développe un système de surveillance par drones pour assurer la sécurité publique dans une zone urbaine fréquentée. Les drones utilisent l'IA pour détecter des activités suspectes en temps réel et notifier les autorités.
+
+### **Tâches**
+1. **Identifier la Catégorie de Risque :**
+   - Analysez le cas d'utilisation et déterminez s'il relève des risques inacceptables, élevés, limités ou minimaux. Justifiez votre réponse.
+2. **Exigences de Conformité :**
+   - Listez les obligations spécifiques liées à cette catégorie, comme la transparence, la gestion des données ou la supervision humaine.
+3. **Mesures d’Atténuation :**
+   - Proposez des mesures pratiques pour minimiser les risques et garantir la conformité réglementaire.
+
+### **Résultats Attendus**
+Un rapport écrit catégorisant le risque du système, décrivant les obligations de conformité et détaillant les stratégies d'atténuation.
+
+---
+
+## **Lab 2 : Création d’une Checklist de Conformité**
+
+### **Objectif**
+Développer une checklist pour garantir qu’un système d'IA est conforme au EU AI Act pendant son cycle de développement.
+
+### **Scénario**
+Vous développez un chatbot de santé qui fournit des conseils médicaux basés sur les entrées des utilisateurs. Le chatbot ne pose pas de diagnostics mais oriente les utilisateurs vers des professionnels de santé appropriés.
+
+### **Tâches**
+1. **Développement de la Checklist :**
+   - Créez une checklist qui inclut :
+     - La catégorisation des risques.
+     - Les mesures de transparence.
+     - Les politiques de protection des données (alignées avec le RGPD).
+     - Les exigences de documentation.
+     - Les stratégies de réduction des biais.
+2. **Revue par les Pairs :**
+   - Présentez votre checklist à un groupe pour obtenir des retours et affinez-la en fonction de leurs suggestions.
+
+### **Résultats Attendus**
+Une checklist détaillée de conformité, avec une justification pour chaque point basée sur le EU AI Act.
+
+---
 ### **Partie 2 : Analyse de la Conformité d’un Projet d’IA**
 
 #### **2.1 Cas Pratique : Analyse d’un Chatbot**
