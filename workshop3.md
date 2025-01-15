@@ -1,4 +1,4 @@
-# Workshop 3 : Intelligence Artificielle et Législation Européenne (AI Act)
+# Workshop 3 : Intelligence Artificielle et Législation Européenne (EU AI Act)
 
 ---
 
