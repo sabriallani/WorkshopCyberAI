@@ -1,4 +1,4 @@
-# Workshop : Comprendre les Risques OWASP Top 10 pour les LLM
+# Workshop 2 : Comprendre les Risques OWASP Top 10 pour les LLM
 
 ## Introduction
 
