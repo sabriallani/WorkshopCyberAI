@@ -138,7 +138,7 @@ Créez un fichier nommé `journaux_systeme.txt` avec le contenu suivant pour tes
 ## Exemple d'exécution
 Voici à quoi ressemble l'application lors de son utilisation :
 
-![Exemple d'exécution](Capture d’écran%202025-01-16%20143349.png)
+![Exemple d'exécution](img1.png)
 
 ---
 ## Conclusion
