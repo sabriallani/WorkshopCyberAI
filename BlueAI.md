@@ -1,4 +1,4 @@
-# Tutoriel : Créer une application Streamlit pour détecter des anomalies dans les fichiers réseau avec l'API NVIDIA
+# Tutoriel : Créer une application web pour analyser des journaux système avec l'API NVIDIA
 
 ## Prérequis
 Avant de commencer, assurez-vous que :
@@ -6,7 +6,8 @@ Avant de commencer, assurez-vous que :
 1. **Python** est installé sur votre système.
 2. Vous avez installé les bibliothèques suivantes :
     - `streamlit`
-    - `openai` (compatible NVIDIA API)
+    - `openai`
+    - `json` (intégré dans Python, aucune installation nécessaire)
 3. Vous disposez d'une clé API NVIDIA valide.
 
 Installez les bibliothèques nécessaires avec :
@@ -19,9 +20,9 @@ pip install streamlit openai
 ## Objectif
 Nous allons créer une application Streamlit qui :
 
-1. Permet de télécharger un fichier réseau (e.g., fichier texte ou JSON contenant des logs).
+1. Permet de télécharger un fichier de journaux système (format texte).
 2. Analyse ce fichier à l'aide de l'API NVIDIA.
-3. Indique s'il y a une anomalie ou non.
+3. Interprète les journaux pour identifier des événements suspects ou critiques.
 
 ---
 
@@ -30,42 +31,73 @@ Créez un fichier Python nommé `app.py` et collez le code suivant :
 
 ```python
 import streamlit as st
-from openai import OpenAI
-import json
+import requests
+import json  # Assurez-vous que json est importé
 
 # Configurer le client NVIDIA
-client = OpenAI(
-    base_url="https://integrate.api.nvidia.com/v1",
-    api_key="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"  # Remplacez par votre clé API NVIDIA
-)
+API_KEY = "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"
+BASE_URL = "https://integrate.api.nvidia.com/v1"
 
-st.title("Détection d'anomalies dans les fichiers réseau")
-st.write("Cette application utilise l'API NVIDIA pour analyser les fichiers réseau et détecter d'éventuelles anomalies.")
+def analyze_logs(content):
+    headers = {"Authorization": f"Bearer {API_KEY}"}
+    prompt = f"""
+    Voici une liste de journaux système :
+    {content}
+
+    1. Identifiez les événements suspects ou inhabituels.
+    2. Expliquez pourquoi ces événements sont problématiques.
+    3. Proposez des recommandations pour éviter ces problèmes à l'avenir.
+    """
+    payload = {
+        "model": "nvidia/llama-3.1-nemotron-70b-instruct",
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.5,
+        "top_p": 1,
+        "max_tokens": 1024,
+        "stream": True,
+    }
+    response = requests.post(f"{BASE_URL}/chat/completions", headers=headers, json=payload, stream=True)
+    if response.status_code == 200:
+        return response
+    else:
+        st.error(f"Erreur API NVIDIA : {response.status_code} - {response.text}")
+        return None
+
+# Application Streamlit
+st.title("Analyse des journaux système avec NVIDIA LLM")
+st.write("Cette application analyse les journaux système pour identifier des événements critiques ou suspects.")
 
 # Upload du fichier
-uploaded_file = st.file_uploader("Téléchargez un fichier réseau (format JSON ou texte)", type=["txt", "json"])
+uploaded_file = st.file_uploader("Téléchargez un fichier de journaux système (format texte)", type=["txt"])
 
 if uploaded_file is not None:
-    # Lire le contenu du fichier
     try:
+        # Lire le contenu du fichier
         content = uploaded_file.read().decode("utf-8")
         st.write("Fichier chargé avec succès :")
         st.text(content[:500])  # Afficher les 500 premiers caractères
 
         # Appel à l'API NVIDIA
-        response = client.completions(
-            model="network-anomaly-detector",
-            prompt=f"Analyse ce fichier réseau et détecte s'il y a des anomalies : {content}",
-            max_tokens=200
-        )
-
-        # Analyse de la réponse
-        if response and "choices" in response:
-            result = response["choices"][0]["text"].strip()
+        response = analyze_logs(content)
+        if response:
             st.success("Résultat de l'analyse :")
-            st.write(result)
-        else:
-            st.error("Une erreur s'est produite lors de l'analyse. Veuillez réessayer.")
+            result = ""
+            for line in response.iter_lines():
+                if line:
+                    try:
+                        chunk = line.decode("utf-8")
+                        data = json.loads(chunk.replace("data: ", ""))
+                        if "choices" in data and data["choices"][0]["delta"].get("content"):
+                            result += data["choices"][0]["delta"]["content"]
+                    except json.JSONDecodeError:
+                        st.error("Erreur lors du décodage JSON : chunk mal formé.")
+                    except Exception as e:
+                        st.error(f"Erreur dans le traitement du chunk : {e}")
+            # Afficher le rapport d'analyse avec un formatage clair
+            st.markdown("### Rapport d'analyse")
+            for line in result.split("\n"):
+                if line.strip():
+                    st.write(f"- {line.strip()}")
 
     except Exception as e:
         st.error(f"Erreur lors du traitement du fichier : {e}")
@@ -80,30 +112,28 @@ if uploaded_file is not None:
    streamlit run app.py
    ```
 3. Ouvrez l'URL générée par Streamlit (généralement `http://localhost:8501`).
-4. Téléchargez un fichier réseau pour détecter des anomalies.
+4. Téléchargez un fichier contenant les journaux système pour les analyser.
 
 ---
 
-## Exemple de fichier réseau
-Créez un fichier nommé `sample_network.json` avec le contenu suivant pour tester l'application :
+## Exemple de fichier de journaux système
+Créez un fichier nommé `journaux_systeme.txt` avec le contenu suivant pour tester l'application :
 
-```json
-{
-    "timestamp": "2025-01-16T10:00:00Z",
-    "source_ip": "192.168.1.10",
-    "destination_ip": "192.168.1.20",
-    "protocol": "TCP",
-    "packet_size": 512
-}
+```
+2025-01-10 12:00:01 User 'admin' logged in from IP 192.168.1.10
+2025-01-10 12:15:23 Failed login attempt for user 'root' from IP 10.0.0.15
+2025-01-10 12:20:45 User 'john' downloaded sensitive file 'confidential.pdf'
+2025-01-10 12:35:50 Unusual traffic detected from IP 10.0.0.20
+2025-01-10 12:50:10 User 'admin' performed a password reset for user 'guest'
 ```
 
 ---
 
 ## Points importants
 - Remplacez la clé API dans le code par une clé valide et personnelle.
-- Cette application est un point de départ. Vous pouvez l'enrichir pour gérer différents types de fichiers ou fournir des visualisations plus avancées.
+- Cette application est un point de départ. Vous pouvez l'enrichir pour fournir des visualisations ou des recommandations plus avancées.
 
 ---
 
 ## Conclusion
-Félicitations ! Vous avez créé une application Streamlit pour analyser les fichiers réseau à l'aide de l'API NVIDIA. Continuez à l’améliorer en explorant d'autres modèles ou en ajoutant des fonctionnalités.
+Félicitations ! Vous avez créé une application Streamlit pour analyser des journaux système à l'aide de l'API NVIDIA. Continuez à l’améliorer en explorant d'autres modèles ou en ajoutant des fonctionnalités.
