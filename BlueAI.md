@@ -135,5 +135,11 @@ Créez un fichier nommé `journaux_systeme.txt` avec le contenu suivant pour tes
 
 ---
 
+## Exemple d'exécution
+Voici à quoi ressemble l'application lors de son utilisation :
+
+![Exemple d'exécution](Capture d’écran%202025-01-16%20143349.png)
+
+---
 ## Conclusion
 Félicitations ! Vous avez créé une application Streamlit pour analyser des journaux système à l'aide de l'API NVIDIA. Continuez à l’améliorer en explorant d'autres modèles ou en ajoutant des fonctionnalités.
