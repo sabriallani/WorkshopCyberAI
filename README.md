@@ -1,23 +1,22 @@
-# Workshop : GenAI Meets Cybersecurity: Building the Workforce of Tomorrow
-![image](https://github.com/user-attachments/assets/b59979fd-b221-48ac-ab3c-3efb26b042cd)
-
+# Workshop : AI Security
 
 ![AI Security](img2.png)
 
-Ce workshop est sponsorisé par **Expleo Group** en partenariat avec l'**Université de Tours** et animé par **Dr. Sabri ALLANI**, Lead AI Security chez Expleo Group.
+Ce workshop est assuré par **Dr. Sabri ALLANI** dans le cadre d’un module sur la **sécurité de l’intelligence artificielle** à l’**Université de Tours**.
 
 ---
 
-Nous sommes ravis d’annoncer que les experts d’Expleo animent ce module sur la sécurité de l’intelligence artificielle à l’Université de Tours. 
-
-### Objectifs du Workshop :
-- Partager avec les ingénieurs de demain les **risques** et **défis** liés à l’adoption de l’IA 🤖.
-- Présenter les **mesures** et **techniques** essentielles pour sécuriser les modèles d'IA et les infrastructures 🛡️🛡️.
-
----
-
-Un grand merci à **D. Nizar Messai** pour sa confiance et son soutien.
+### Objectifs du Workshop
+1. Identifier les **risques** et **défis** associés à l’adoption de l’IA.
+2. Apprendre les **techniques** pour sécuriser les modèles et infrastructures d’IA.
+3. Sensibiliser les futurs ingénieurs aux enjeux de la **sécurité IA**.
 
 ---
 
-📌 *Pour en savoir plus sur Expleo Group et nos projets, visitez notre [site officiel](https://expleogroup.com).* 
+Ce workshop reflète l’engagement de l’Université de Tours et d’Expleo Group à former des ingénieurs compétents et préparés aux défis de l’intelligence artificielle.
+
+---
+
+Un grand merci à **Dr. Nizar MESSAI** pour son invitation et sa confiance dans la réalisation de ce workshop.
+
+📌 *Pour plus d'informations, n'hésitez pas à consulter les actualités de l'Université de Tours ou les projets d'Expleo Group.*
