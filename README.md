@@ -11,6 +11,8 @@ Ce workshop est assuré par **Dr. Sabri ALLANI** dans le cadre d’un module sur
 2. Apprendre les **techniques** pour sécuriser les modèles et infrastructures d’IA.
 3. Sensibiliser les futurs ingénieurs aux enjeux de la **sécurité IA**.
 
+![Work Plan](Img3.png)
+
 ---
 
 Ce workshop reflète l’engagement de l’Université de Tours et d’Expleo Group à former des ingénieurs compétents et préparés aux défis de l’intelligence artificielle.
