@@ -5,6 +5,7 @@
 ## **Introduction**
 
 L'AI Act, proposé par l'Union Européenne, est le premier cadre législatif global visant à réglementer l'intelligence artificielle. Il établit des normes claires pour le développement et l'utilisation des systèmes d'IA tout en garantissant la protection des droits fondamentaux des citoyens européens.
+Pour consulter le texte complet, visitez le site officiel : [EU AI Act](https://artificialintelligenceact.eu/the-act/).
 
 Dans ce workshop, nous examinerons :
 - Les principes fondamentaux de l'AI Act.
