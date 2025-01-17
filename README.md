@@ -1,4 +1,6 @@
-# Workshop : AI Security
+# Workshop : GenAI Meets Cybersecurity: Building the Workforce of Tomorrow
+![image](https://github.com/user-attachments/assets/b59979fd-b221-48ac-ab3c-3efb26b042cd)
+
 
 ![AI Security](img2.png)
 
