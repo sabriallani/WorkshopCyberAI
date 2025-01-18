@@ -19,6 +19,7 @@ Ce workshop reflète l’engagement de l’Université de Tours et d’Expleo Gr
 
 ---
 
-Un grand merci à **Dr. Nizar MESSAI** pour son invitation et sa confiance dans la réalisation de ce workshop.
+Un grand merci à **Dr. Nizar MESSAI** pour son invitation et sa confiance dans la réalisation de ce workshop.  
+Un grand merci également à **Helmi Rais**, CyberSecurity Practice Leader chez Expleo, pour son rôle clé dans l’organisation de cet événement, ainsi qu’à **Nizar Messai** pour son implication en tant que professeur et responsable du Master.
 
 📌 *Pour plus d'informations, n'hésitez pas à consulter les actualités de l'Université de Tours ou les projets d'Expleo Group.*
